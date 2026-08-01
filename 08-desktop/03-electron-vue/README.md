@@ -1827,7 +1827,7 @@ chore: 构建或辅助工具变动
 
 ## 许可证
 
-MIT License - 详见 [LICENSE](LICENSE) 文件
+MIT License - 詳見 [LICENSE](../../LICENSE) 文件
 
 ## 相关资源
 

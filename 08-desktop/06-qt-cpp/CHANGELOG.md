@@ -172,8 +172,8 @@ Potential improvements for next version:
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on contributing to this project.
+See [CONTRIBUTING.md](../../CONTRIBUTING.md) for guidelines on contributing to this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details.

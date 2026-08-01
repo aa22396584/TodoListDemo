@@ -1,0 +1,74 @@
+name: R1 - Code Quality & Project Structure Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  structure-and-docs:
+    name: Validate Project Structure & Relative Links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run structure & docs validator
+        run: python .github/scripts/validate_structure.py
+
+  markdown-lint:
+    name: Lint Markdown Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Lint Markdown files with markdownlint-cli2
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          config: '.markdownlint.json'
+          globs: '**/*.md'
+
+  yaml-lint:
+    name: Lint YAML & Actions Workflows
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install yamllint
+        run: pip install yamllint
+
+      - name: Run yamllint
+        run: yamllint -c .yamllint.yml .
+
+      - name: Run actionlint
+        uses: rhysd/actionlint-action@v1
+
+  code-quality:
+    name: Root Code Quality Gate
+    runs-on: ubuntu-latest
+    needs:
+      - structure-and-docs
+      - markdown-lint
+      - yaml-lint
+    steps:
+      - name: Confirm Quality Gate Status
+        run: echo "🎉 All R1 Code Quality and Structure validations passed successfully!"

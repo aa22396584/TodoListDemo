@@ -2124,7 +2124,7 @@ firebase deploy
 
 ## 📄 授權協議
 
-本專案採用 MIT 授權協議。詳見 [LICENSE](LICENSE) 文件。
+本專案採用 MIT 授權協議。詳見 [LICENSE](../../LICENSE) 文件。
 
 ---
 

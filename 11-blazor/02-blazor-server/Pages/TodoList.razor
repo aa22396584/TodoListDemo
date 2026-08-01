@@ -16,13 +16,13 @@
         @if (todos.Any())
         {
             <div class="filter-tabs">
-                <button class="@(currentFilter == "all" ? "active" : "")" @onclick="() => SetFilter(\"all\")">
+                <button class="@(currentFilter == "all" ? "active" : "")" @onclick='() => SetFilter("all")'>
                     All (@todos.Count)
                 </button>
-                <button class="@(currentFilter == "active" ? "active" : "")" @onclick="() => SetFilter(\"active\")">
+                <button class="@(currentFilter == "active" ? "active" : "")" @onclick='() => SetFilter("active")'>
                     Active (@activeCount)
                 </button>
-                <button class="@(currentFilter == "completed" ? "active" : "")" @onclick="() => SetFilter(\"completed\")">
+                <button class="@(currentFilter == "completed" ? "active" : "")" @onclick='() => SetFilter("completed")'>
                     Completed (@completedCount)
                 </button>
             </div>
