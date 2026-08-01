@@ -37,6 +37,28 @@ jobs:
           npm install --prefer-offline --no-audit
           npm run build
 
+      - name: Build Modern Framework submodules
+        run: |
+          for dir in 03-modern-frameworks/06-svelte 03-modern-frameworks/07-solidjs 03-modern-frameworks/08-preact 03-modern-frameworks/10-alpine; do
+            if [ -d "$dir" ] && [ -f "$dir/package.json" ]; then
+              echo "=== Building $dir ==="
+              cd "$dir"
+              npm install --prefer-offline --no-audit
+              npm run build
+              cd - > /dev/null
+            fi
+          done
+
+      - name: Build Meta-framework submodules
+        run: |
+          if [ -d "04-metaframeworks/01-nextjs" ] && [ -f "04-metaframeworks/01-nextjs/package.json" ]; then
+            echo "=== Building 04-metaframeworks/01-nextjs ==="
+            cd 04-metaframeworks/01-nextjs
+            npm install --prefer-offline --no-audit
+            npm run build
+            cd - > /dev/null
+          fi
+
   go-tests:
     name: Go Ecosystem Tests
     runs-on: ubuntu-latest

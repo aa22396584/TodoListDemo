@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
 // PATCH /api/todos - Update todo
 export async function PATCH(request: NextRequest) {
   try {
-    const { id, completed } = await request.json()
+    const { id, completed, text } = await request.json()
 
     if (!id) {
       return NextResponse.json(
@@ -106,7 +106,12 @@ export async function PATCH(request: NextRequest) {
       )
     }
 
-    todos[todoIndex].completed = completed
+    if (typeof completed === 'boolean') {
+      todos[todoIndex].completed = completed
+    }
+    if (typeof text === 'string' && text.trim().length > 0) {
+      todos[todoIndex].text = text.trim()
+    }
     await writeTodos(todos)
 
     return NextResponse.json(todos[todoIndex])
@@ -121,7 +126,15 @@ export async function PATCH(request: NextRequest) {
 // DELETE /api/todos - Delete todo
 export async function DELETE(request: NextRequest) {
   try {
-    const { id } = await request.json()
+    const body = await request.json().catch(() => ({}))
+    const { id, clearCompleted } = body
+
+    if (clearCompleted) {
+      const todos = await readTodos()
+      const filteredTodos = todos.filter((t) => !t.completed)
+      await writeTodos(filteredTodos)
+      return NextResponse.json({ success: true })
+    }
 
     if (!id) {
       return NextResponse.json(
@@ -150,3 +163,4 @@ export async function DELETE(request: NextRequest) {
     )
   }
 }
+

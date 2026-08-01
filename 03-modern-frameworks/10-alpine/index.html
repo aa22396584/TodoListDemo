@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodoListDemo - Alpine.js 3</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏔️</text></svg>" />
+    <script type="module" src="/src/app.js"></script>
+  </head>
+  <body>
+    <div class="app-container" x-data="todoApp()">
+      <!-- Page Header -->
+      <header class="app-header">
+        <div class="brand-badge">
+          <span>🏔️ Alpine.js 3 Module</span>
+        </div>
+        <h1 class="app-title">Todo List</h1>
+        <p class="app-subtitle">輕量級 HTML 優先與宣告式 DOM 驅動待辦事項應用</p>
+      </header>
+
+      <!-- Todo Main Card -->
+      <main class="todo-card">
+        <!-- Input & Add Section -->
+        <section class="add-todo-section">
+          <button
+            type="button"
+            class="toggle-all-btn"
+            :class="{ active: allCompleted }"
+            @click="toggleAll()"
+            x-show="todos.length > 0"
+            title="標記全部為已完成/未完成"
+            aria-label="Toggle all todos"
+          >
+            ✓
+          </button>
+          <div class="todo-input-wrapper">
+            <input
+              type="text"
+              class="todo-input"
+              placeholder="新增待辦事項 (按下 Enter 或點擊新增)..."
+              x-model="newTodo"
+              @keyup.enter="addTodo()"
+              autofocus
+            />
+            <button
+              type="button"
+              class="add-btn"
+              @click="addTodo()"
+            >
+              新增
+            </button>
+          </div>
+        </section>
+
+        <!-- Todo Items List -->
+        <ul class="todo-list" x-show="todos.length > 0">
+          <template x-for="todo in filteredTodos" :key="todo.id">
+            <li
+              class="todo-item"
+              :class="{ completed: todo.completed, editing: editingId === todo.id }"
+            >
+              <!-- Checkbox -->
+              <input
+                type="checkbox"
+                class="todo-checkbox"
+                :checked="todo.completed"
+                @change="toggleTodo(todo.id)"
+                :aria-label="'Mark item completed: ' + todo.text"
+              />
+
+              <!-- Text Content / Edit Box -->
+              <div class="todo-content">
+                <!-- Display Text -->
+                <span
+                  class="todo-text"
+                  x-show="editingId !== todo.id"
+                  x-text="todo.text"
+                  @dblclick="startEdit(todo)"
+                  title="雙擊以進行編輯"
+                ></span>
+
+                <!-- Inline Edit Input -->
+                <input
+                  type="text"
+                  class="edit-input"
+                  x-show="editingId === todo.id"
+                  x-model="editText"
+                  @keyup.enter="saveEdit(todo)"
+                  @keyup.escape="cancelEdit()"
+                  @blur="saveEdit(todo)"
+                />
+              </div>
+
+              <!-- Delete Button -->
+              <button
+                type="button"
+                class="delete-btn"
+                @click="removeTodo(todo.id)"
+                title="刪除待辦事項"
+                aria-label="Delete todo item"
+              >
+                ✕
+              </button>
+            </li>
+          </template>
+        </ul>
+
+        <!-- Empty State -->
+        <div class="empty-state" x-show="filteredTodos.length === 0">
+          <span class="empty-icon">📝</span>
+          <p class="empty-text" x-text="todos.length === 0 ? '目前沒有任何待辦事項，新增一個吧！' : '目前分類下沒有待辦事項'"></p>
+        </div>
+
+        <!-- Footer Control Bar -->
+        <footer class="card-footer" x-show="todos.length > 0">
+          <span class="todo-count">
+            剩餘 <strong x-text="remainingCount"></strong> 項待辦
+          </span>
+
+          <div class="filter-group">
+            <button
+              type="button"
+              class="filter-btn"
+              :class="{ active: filter === 'all' }"
+              @click="filter = 'all'"
+            >
+              全部
+            </button>
+            <button
+              type="button"
+              class="filter-btn"
+              :class="{ active: filter === 'active' }"
+              @click="filter = 'active'"
+            >
+              進行中
+            </button>
+            <button
+              type="button"
+              class="filter-btn"
+              :class="{ active: filter === 'completed' }"
+              @click="filter = 'completed'"
+            >
+              已完成
+            </button>
+          </div>
+
+          <button
+            type="button"
+            class="clear-btn"
+            x-show="hasCompleted"
+            @click="clearCompleted()"
+          >
+            清除已完成
+          </button>
+        </footer>
+      </main>
+
+      <!-- Site Footer -->
+      <footer class="app-footer">
+        <p>TodoListDemo — 03 Modern Frameworks / 10 Alpine.js</p>
+        <p>Built with Alpine.js 3 &amp; Vite — HTML-First Reactive UI</p>
+      </footer>
+    </div>
+  </body>
+</html>
