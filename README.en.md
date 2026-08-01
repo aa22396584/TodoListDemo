@@ -57,10 +57,11 @@ Todo List is the **best vehicle for learning technology**:
 - ✅ **Svelte** - Compile-time framework, excellent performance
 - ✅ **SolidJS** - Fine-grained reactivity
 - ✅ **Preact** - Lightweight React alternative
-- ⏳ Alpine.js, HTMX, Qwik, Lit, etc.
+- ✅ **Alpine.js** - Lightweight HTML directive-driven framework
+- ⏳ HTMX, Qwik, Lit, etc.
 
 #### Meta Frameworks (SSR/SSG)
-- ⏳ **Next.js 14** - React server-side rendering
+- ✅ **Next.js 14** - React server-side rendering & App Router REST API
 - ⏳ **Nuxt 3** - Vue full-stack framework
 - ⏳ **Remix** - Modern React framework
 - ⏳ **SvelteKit** - Svelte meta framework

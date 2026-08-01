@@ -57,10 +57,11 @@ Todo List 是**最佳技術學習載體**：
 - ✅ **Svelte** - 編譯時框架，性能卓越
 - ✅ **SolidJS** - 細粒度響應式
 - ✅ **Preact** - 輕量級 React 替代
-- ⏳ Alpine.js、HTMX、Qwik、Lit 等
+- ✅ **Alpine.js** - 輕量 HTML 指令驅動框架
+- ⏳ HTMX、Qwik、Lit 等
 
 #### 元框架 (SSR/SSG)
-- ⏳ **Next.js 14** - React 服務端渲染
+- ✅ **Next.js 14** - React 服務端渲染與 App Router REST API
 - ⏳ **Nuxt 3** - Vue 全棧框架
 - ⏳ **Remix** - 現代 React 框架
 - ⏳ **SvelteKit** - Svelte 元框架
