@@ -1,5 +1,10 @@
 # 📋 Todo List - 100+ 技術棧實現完整指南
 
+> **Development home:** https://github.com/ImL1s/TodoListDemo  
+> Please open issues and pull requests there.  
+> **Mirrors:** [Codeberg](https://codeberg.org/ImL1s/TodoListDemo) · [GitLab](https://gitlab.com/aa22396584/TodoListDemo)
+
+
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
