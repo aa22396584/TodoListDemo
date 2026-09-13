@@ -1,8 +1,11 @@
 # 📋 Todo List - 100+ 技術棧實現完整指南
 
-> **Development home:** https://github.com/ImL1s/TodoListDemo  
-> Please open issues and pull requests there.  
-> **Mirrors:** [Codeberg](https://codeberg.org/ImL1s/TodoListDemo) · [GitLab](https://gitlab.com/aa22396584/TodoListDemo)
+**Development, Issues & Pull Requests:**  
+https://github.com/aa22396584/TodoListDemo
+
+**Mirrors:**  
+[GitLab](https://gitlab.com/aa22396584/TodoListDemo) ·
+[Codeberg](https://codeberg.org/ImL1s/TodoListDemo)
 
 
 <div align="center">
@@ -540,8 +543,8 @@ framework-name/
 
 ### 獲得幫助
 
-- 💬 [GitHub Discussions](https://github.com/ImL1s/TodoListDemo/discussions)
-- 🐛 [提交 Issue](https://github.com/ImL1s/TodoListDemo/issues)
+- 💬 [GitHub Discussions](https://github.com/aa22396584/TodoListDemo/discussions)
+- 🐛 [提交 Issue](https://github.com/aa22396584/TodoListDemo/issues)
 - 📧 Email: （如需添加）
 
 感謝每一位貢獻者！ 🙏

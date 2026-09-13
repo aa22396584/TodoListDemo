@@ -509,8 +509,8 @@ We check for:
 
 ### Get Help
 
-- 💬 [GitHub Discussions](https://github.com/ImL1s/TodoListDemo/discussions)
-- 🐛 [Submit Issue](https://github.com/ImL1s/TodoListDemo/issues)
+- 💬 [GitHub Discussions](https://github.com/aa22396584/TodoListDemo/discussions)
+- 🐛 [Submit Issue](https://github.com/aa22396584/TodoListDemo/issues)
 - 📧 Email: (Add if needed)
 
 Thanks to every contributor! 🙏
