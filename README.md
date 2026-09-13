@@ -8,6 +8,8 @@ https://github.com/aa22396584/TodoListDemo
 [Codeberg](https://codeberg.org/ImL1s/TodoListDemo)
 
 
+> **Why this GitHub home?** Public development moved here from [`ImL1s/TodoListDemo`](https://github.com/ImL1s/TodoListDemo) because that GitHub account is currently restricted (anonymous visitors get 404 on the profile and many assets). This is the same project. Please open Issues and Pull Requests here.
+
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
